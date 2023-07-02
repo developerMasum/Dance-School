@@ -2,9 +2,13 @@ import React, { useContext } from 'react';
 import { Fade } from "react-awesome-reveal";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import useAdmin from '../../hooks/useAdmin';
+import useInstructor from '../../hooks/useInstructor';
 
 const ClassCard = ({ cls, handleSelect }) => {
   const { user } = useContext(AuthContext);
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
 
   return (
     <Fade>
@@ -25,21 +29,23 @@ const ClassCard = ({ cls, handleSelect }) => {
               Fees: <span className='text-orange-700 text-3xl'>${cls.price}</span>
             </p>
             <div className="card-actions justify-center mt-3">
-              {user && user.email ? (
-                <button
-                  onClick={() => handleSelect(cls)}
-                 
-                  className="px-4 py-3 rounded-md hover:bg-blue-800 bg-red-500 text-white font-mono mt-4 w-full"
-                >
-                  Enroll Now
-                </button>
-              ) : (
-                <Link to={'/login'}>
-                  <button className="px-4 py-3 rounded-md hover:bg-blue-800 bg-red-500 text-white font-mono mt-4 w-[300px]">
-                    Enroll Now
-                  </button>
-                </Link>
-              )}
+            {isAdmin && isInstructor ? (
+  (user && user.email) ? (
+    <button
+      onClick={() => handleSelect(cls)}
+      className="px-4 py-3 rounded-md hover:bg-blue-800 bg-red-500 text-white font-mono mt-4 w-full"
+    >
+      Enroll Now
+    </button>
+  ) : (
+    <Link to={'/login'}>
+      <button className="px-4 py-3 rounded-md hover:bg-blue-800 bg-red-500 text-white font-mono mt-4 w-[300px]">
+        Enroll Now
+      </button>
+    </Link>
+  )
+) : ' '}
+
             </div>
           </div>
         </div>
