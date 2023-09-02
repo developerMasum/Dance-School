@@ -1,5 +1,5 @@
 import React from "react";
-import image from '../../../client/src/assets/images/flaire-logo-white-text.png'
+import image from '../assets/images/flaire-logo-white-text.png'
 
 const Footer = () => {
   return (

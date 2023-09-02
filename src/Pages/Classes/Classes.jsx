@@ -76,8 +76,8 @@ const Classes = () => {
   };
 
   return (
-    <div>
-      {" "}
+    <div className="pt-16">
+    
       <Helmet>
         <title> Flaire | All Courses</title>
       </Helmet>

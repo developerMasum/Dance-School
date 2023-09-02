@@ -45,7 +45,7 @@ const Instructors = () => {
   return (
  <div>
 
-<div className="featured-item bg-fixed text-white mt-2">
+<div className="featured-item bg-fixed text-white pt-20">
            
             <div className="md:flex flex-col justify-center items-center bg-slate-500 bg-opacity-60 pb-20 pt-12 px-36">
               <p className=" font-bold">- Instructors -</p>
